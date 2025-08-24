@@ -65,3 +65,29 @@ button:active {
   animation: blink 0.8s;
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .choices {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    width: 100%;
+  }
+}
