@@ -9,3 +9,59 @@ body {
   height: 100vh;
 }
 
+.game-container {
+  text-align: center;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  max-width: 400px;
+  width: 90%;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button {
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  margin: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #341f97;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Result Animations */
+.win {
+  color: green;
+  animation: bounce 0.6s;
+}
+
+.lose {
+  color: red;
+  animation: shake 0.6s;
+}
+
+.draw {
+  color: goldenrod;
+  animation: blink 0.8s;
+}
+
