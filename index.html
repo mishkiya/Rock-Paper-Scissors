@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +17,28 @@
       <button class="mode-btn" data-rounds="5">5 Rounds</button>
       <button class="mode-btn" data-rounds="7">7 Rounds</button>
     </div>
+
         <!-- Scoreboard -->
     <div class="scoreboard hidden">
       <p>Round: <span id="current-round">0</span>/<span id="total-rounds">0</span></p>
       <p>You: <span id="player-score">0</span> | Computer: <span id="computer-score">0</span></p>
     </div>
 
-  
+    
+    <!-- Choices -->
+    <div class="choices hidden">
+      <button class="choice-btn" data-choice="rock">✊ Rock</button>
+      <button class="choice-btn" data-choice="paper">✋ Paper</button>
+      <button class="choice-btn" data-choice="scissors">✌️ Scissors</button>
+    </div>
+
+    <!-- Result -->
+    <div class="result hidden" id="result"></div>
+
+    <!-- Restart -->
+    <button id="restart" class="hidden">Restart Game</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
