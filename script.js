@@ -69,4 +69,39 @@ function checkGameOver() {
   }
 }
 
+// ===== EVENT HANDLERS =====
+modeButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    totalRounds = parseInt(btn.dataset.rounds);
+    totalRoundsEl.textContent = totalRounds;
 
+    // Reset
+    playerScore = 0;
+    computerScore = 0;
+    currentRound = 0;
+
+    playerScoreEl.textContent = 0;
+    computerScoreEl.textContent = 0;
+    currentRoundEl.textContent = 0;
+
+    scoreboard.classList.remove("hidden");
+    choices.classList.remove("hidden");
+    resultDiv.classList.add("hidden");
+    restartBtn.classList.add("hidden");
+  });
+});
+
+choices.addEventListener("click", e => {
+  if (!e.target.dataset.choice) return;
+  const playerChoice = e.target.dataset.choice;
+  const computerChoice = getComputerChoice();
+
+  const result = playRound(playerChoice, computerChoice);
+  updateScore(result);
+  showResult(result, playerChoice, computerChoice);
+  checkGameOver();
+});
+
+restartBtn.addEventListener("click", () => {
+  location.reload();
+});
