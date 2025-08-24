@@ -41,3 +41,32 @@ function updateScore(result) {
   currentRoundEl.textContent = currentRound;
 }
 
+function showResult(result, player, computer) {
+  resultDiv.className = "result"; // reset classes
+  if (result === "win") {
+    resultDiv.textContent = `You Win! ${player} beats ${computer}`;
+    resultDiv.classList.add("win");
+  } else if (result === "lose") {
+    resultDiv.textContent = `You Lose! ${computer} beats ${player}`;
+    resultDiv.classList.add("lose");
+  } else {
+    resultDiv.textContent = `It's a Draw! You both chose ${player}`;
+    resultDiv.classList.add("draw");
+  }
+  resultDiv.classList.remove("hidden");
+}
+
+function checkGameOver() {
+  if (currentRound >= totalRounds) {
+    let finalMsg = "";
+    if (playerScore > computerScore) finalMsg = "🎉 You are the Final Winner!";
+    else if (computerScore > playerScore) finalMsg = "😢 Computer Wins the Game!";
+    else finalMsg = "⚖️ It's an Overall Draw!";
+
+    resultDiv.textContent = finalMsg;
+    restartBtn.classList.remove("hidden");
+    choices.classList.add("hidden");
+  }
+}
+
+
