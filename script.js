@@ -15,3 +15,29 @@ const computerScoreEl = document.getElementById("computer-score");
 const currentRoundEl = document.getElementById("current-round");
 const totalRoundsEl = document.getElementById("total-rounds");
 
+// ===== GAME LOGIC =====
+function getComputerChoice() {
+  const options = ["rock", "paper", "scissors"];
+  return options[Math.floor(Math.random() * options.length)];
+}
+
+function playRound(playerChoice, computerChoice) {
+  if (playerChoice === computerChoice) return "draw";
+  if (
+    (playerChoice === "rock" && computerChoice === "scissors") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissors" && computerChoice === "paper")
+  ) return "win";
+  return "lose";
+}
+
+function updateScore(result) {
+  if (result === "win") playerScore++;
+  if (result === "lose") computerScore++;
+  currentRound++;
+
+  playerScoreEl.textContent = playerScore;
+  computerScoreEl.textContent = computerScore;
+  currentRoundEl.textContent = currentRound;
+}
+
